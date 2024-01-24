@@ -1,0 +1,7 @@
+*.tar*
+/vivos/test/waves
+/vivos/train/waves
+/vivos/feat_dir
+/vivos/km_dir
+/vivos/lab_dir
+FastHuBERT
