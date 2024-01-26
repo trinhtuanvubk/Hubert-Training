@@ -35,7 +35,15 @@ logger = logging.getLogger(__name__)
 
 @dataclass
 class HubertAsrConfig(FairseqDataclass):
+    autoregressive: bool = field(
+    default=False,
+    metadata={
+        "help": "required for autoregressive decoders (like seq2seq models); "
+        "adds 'prev_output_tokens' to input and appends eos to target"
+    },
+)
     w2v_path: str = field(default=MISSING, metadata={"help": "path to hubert model"})
+
     no_pretrained_weights: bool = field(
         default=False,
         metadata={"help": "if true, does not load pretrained weights"},
