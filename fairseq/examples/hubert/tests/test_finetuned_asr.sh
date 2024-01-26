@@ -5,8 +5,9 @@ set -e
 sizes="large xlarge"
 
 declare -A ckpt_urls
-ckpt_urls[large]="https://dl.fbaipublicfiles.com/hubert/hubert_large_ll60k_finetune_ls960.pt"
-ckpt_urls[xlarge]="https://dl.fbaipublicfiles.com/hubert/hubert_xtralarge_ll60k_finetune_ls960.pt"
+ckpt_urls[hihi]="/home/sangdt/research/voice/hubert/fairseq/Hubert_Checkpoint/checkpoints/checkpoint_478_375000.pt"
+# ckpt_urls[large]="https://dl.fbaipublicfiles.com/hubert/hubert_large_ll60k_finetune_ls960.pt"
+# ckpt_urls[xlarge]="https://dl.fbaipublicfiles.com/hubert/hubert_xtralarge_ll60k_finetune_ls960.pt"
 
 test_dir=$(pwd)/examples/hubert/tests
 split=sample
@@ -21,10 +22,10 @@ check_asr () {
   ckpt_url=$2
   ckpt_path="$test_dir/$(basename "$ckpt_url")"
 
-  if [ ! -f "$ckpt_path" ]; then
-    echo "downloading $ckpt_url to $ckpt_path"
-    wget "$ckpt_url" -O "$ckpt_path"
-  fi
+  # if [ ! -f "$ckpt_path" ]; then
+  #   echo "downloading $ckpt_url to $ckpt_path"
+  #   wget "$ckpt_url" -O "$ckpt_path"
+  # fi
 
   python examples/speech_recognition/new/infer.py \
     --config-dir examples/hubert/config/decode --config-name infer_viterbi \
